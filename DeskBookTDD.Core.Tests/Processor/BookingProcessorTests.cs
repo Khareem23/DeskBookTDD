@@ -9,32 +9,34 @@ namespace DeskBookTDD.Core.Tests.Processor
     public class BookingProcessorTests
     {
         private readonly BookingProcessor _processor;
+        private readonly BookingRequest _request;
 
         public BookingProcessorTests()
         {
              _processor = new BookingProcessor();
+             _request = new BookingRequest
+             {
+                 FirstName = "Olayinka",
+                 LastName = "Khareem",
+                 Email = "kareem@gmail.com",
+                 Date = new DateTime(2020, 02, 25)
+             };
         }
         [Fact]
         public void   CreateBooking_ShouldReturnResultWithRequestValues()
         {
             // Arrange
-            var request = new BookingRequest
-            {
-                FirstName = "Olayinka",
-                LastName = "Khareem",
-                Email = "kareem@gmail.com",
-                Date = new DateTime(2020, 02, 25)
-            };
+           
             
             // Act
-            BookingResult result = _processor.CreateBooking(request);
+            BookingResult result = _processor.CreateBooking(_request);
             
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(request.FirstName, result.FirstName);
-            Assert.Equal(request.LastName, result.LastName);
-            Assert.Equal(request.Email, result.Email);
-            Assert.Equal(request.Date, result.Date);
+            Assert.Equal(_request.FirstName, result.FirstName);
+            Assert.Equal(_request.LastName, result.LastName);
+            Assert.Equal(_request.Email, result.Email);
+            Assert.Equal(_request.Date, result.Date);
         }
 
         [Fact]
@@ -42,6 +44,12 @@ namespace DeskBookTDD.Core.Tests.Processor
         {
             var exception =   Assert.Throws<ArgumentNullException>(()=> _processor.CreateBooking(null));
             Assert.Equal("request", exception.ParamName);
+        }
+
+        [Fact]
+        public void CreateBooking_ShouldSaveBookingRequest()
+        {
+            
         }
     }
 }
