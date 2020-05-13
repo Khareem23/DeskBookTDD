@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBookTDD.Core.Tests", "DeskBookTDD.Core.Tests\DeskBookTDD.Core.Tests.csproj", "{61DC5A57-D7EB-4BE8-BAC1-DF879D430934}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBookTDD.Core", "DeskBookTDD.Core\DeskBookTDD.Core.csproj", "{842C393B-4130-4486-BB84-0AC3F6305194}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61DC5A57-D7EB-4BE8-BAC1-DF879D430934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61DC5A57-D7EB-4BE8-BAC1-DF879D430934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61DC5A57-D7EB-4BE8-BAC1-DF879D430934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61DC5A57-D7EB-4BE8-BAC1-DF879D430934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842C393B-4130-4486-BB84-0AC3F6305194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842C393B-4130-4486-BB84-0AC3F6305194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842C393B-4130-4486-BB84-0AC3F6305194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842C393B-4130-4486-BB84-0AC3F6305194}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
