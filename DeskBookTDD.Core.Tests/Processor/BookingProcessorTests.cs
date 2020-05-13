@@ -2,35 +2,37 @@ using System;
 using DeskBookTDD.Core.Domain;
 using DeskBookTDD.Core.Processor;
 using Xunit;
+
 // ReSharper disable All
 
 namespace DeskBookTDD.Core.Tests.Processor
 {
     public class BookingProcessorTests
     {
+        public BookingProcessorTests()
+        {
+            _processor = new BookingProcessor();
+            _request = new BookingRequest
+            {
+                FirstName = "Olayinka",
+                LastName = "Khareem",
+                Email = "kareem@gmail.com",
+                Date = new DateTime(2020, 02, 25)
+            };
+        }
+
         private readonly BookingProcessor _processor;
         private readonly BookingRequest _request;
 
-        public BookingProcessorTests()
-        {
-             _processor = new BookingProcessor();
-             _request = new BookingRequest
-             {
-                 FirstName = "Olayinka",
-                 LastName = "Khareem",
-                 Email = "kareem@gmail.com",
-                 Date = new DateTime(2020, 02, 25)
-             };
-        }
         [Fact]
-        public void   CreateBooking_ShouldReturnResultWithRequestValues()
+        public void CreateBooking_ShouldReturnResultWithRequestValues()
         {
             // Arrange
-           
-            
+
+
             // Act
             BookingResult result = _processor.CreateBooking(_request);
-            
+
             // Assert
             Assert.NotNull(result);
             Assert.Equal(_request.FirstName, result.FirstName);
@@ -40,16 +42,16 @@ namespace DeskBookTDD.Core.Tests.Processor
         }
 
         [Fact]
-        public  void CreateBooking_ShouldThrowExceptionIfRequestIsNull()
+        public void CreateBooking_ShouldSaveBookingRequest()
         {
-            var exception =   Assert.Throws<ArgumentNullException>(()=> _processor.CreateBooking(null));
-            Assert.Equal("request", exception.ParamName);
+            _processor.CreateBooking(_request);
         }
 
         [Fact]
-        public void CreateBooking_ShouldSaveBookingRequest()
+        public void CreateBooking_ShouldThrowExceptionIfRequestIsNull()
         {
-            
+            var exception = Assert.Throws<ArgumentNullException>(() => _processor.CreateBooking(null));
+            Assert.Equal("request", exception.ParamName);
         }
     }
 }
